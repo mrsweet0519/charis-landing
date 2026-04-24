@@ -7,15 +7,12 @@ import {
   BadgeCheck,
   Brain,
   BriefcaseBusiness,
-  Check,
   CheckCircle2,
   CircleDollarSign,
   Clock3,
   Gem,
-  Hand,
   HeartHandshake,
   MessageCircleMore,
-  Play,
   ScanLine,
   ShieldCheck,
   Sparkles,
@@ -35,10 +32,6 @@ const WEBINAR_CTA = '#webinar';
 const FINAL_CTA = '#final-cta';
 const DEADLINE = new Date('2026-05-10T23:59:59+09:00').getTime();
 
-void Check;
-void Hand;
-void Play;
-
 const empathyChecklist = [
   '시술도 내가',
   '상담도 내가',
@@ -49,33 +42,31 @@ const empathyChecklist = [
   '아이 케어까지 내가',
 ];
 
-void empathyChecklist;
-
 const structurePillars = [
   {
     icon: Gem,
     title: '기술',
-    text: '결이 보이는 시술 퀄리티',
+    text: '잘하는 기술이 아니라, 고객이 바로 납득하는 기술.',
   },
   {
     icon: BriefcaseBusiness,
     title: '경영',
-    text: '대표가 버티지 않는 운영 기준',
+    text: '버티는 운영이 아니라, 무너지지 않는 운영.',
   },
   {
     icon: HeartHandshake,
     title: 'CS',
-    text: '상담과 재방문을 만드는 응대 구조',
+    text: '친절한 응대가 아니라, 다시 오게 만드는 흐름.',
   },
   {
     icon: CircleDollarSign,
     title: '세금',
-    text: '1인샵 대표가 알아야 할 돈 관리 감각',
+    text: '몰라서 새는 돈부터 막는 대표 감각.',
   },
   {
     icon: Brain,
     title: '워킹맘 마인드',
-    text: '지치지 않고 오래 가는 기준과 루틴',
+    text: '무너지지 않고 오래 가는 기준과 루틴.',
   },
 ];
 
@@ -122,11 +113,10 @@ const webinarFlow = [
 ];
 
 const storyLines = [
-  '처음엔 기술만 좋으면 예약도 따라올 줄 알았습니다.',
-  '광고비는 계속 나가는데, 문의와 예약은 기대만큼 늘지 않았습니다.',
-  '상담도, CS도, 세금도, 운영도 결국 전부 제 몫이었습니다.',
-  '아이를 돌보며 버티는 하루가 반복되자 더 열심히 하는 것만으로는 안 된다는 걸 알았습니다.',
-  '결국 문제는 기술이 아니라 혼자 버티는 구조였고, 그래서 기술과 경영을 함께 다루게 됐습니다.',
+  '기술만 있으면 될 줄 알았습니다. 그런데 예약은 그대로였습니다.',
+  '광고비는 계속 빠져나가고, 상담은 늘 제가 끝까지 설득해야 했습니다.',
+  '아이를 보며 버티는 하루가 반복되자, 더 열심히 하는 것만으로는 절대 안 바뀐다는 걸 알았습니다.',
+  '문제는 기술이 아니라 구조였습니다. 그래서 기술과 경영을 같이 다루기 시작했습니다.',
 ];
 
 const reviewCards = [
@@ -371,7 +361,7 @@ function StopScreen({
             {lines.map((line, index) => (
               <p
                 key={line}
-                className={`text-[2.45rem] font-semibold leading-[0.98] tracking-[-0.05em] sm:text-[3.15rem] ${
+                className={`text-[2.75rem] font-semibold leading-[0.94] tracking-[-0.06em] sm:text-[3.7rem] ${
                   index === lines.length - 1 ? (light ? 'text-[#8A6910]' : 'text-[#F5E6B3]') : ''
                 }`}
               >
@@ -380,7 +370,7 @@ function StopScreen({
             ))}
           </div>
           {subtitle ? (
-            <p className={`mt-4 text-base leading-7 ${light ? 'text-[#463F33]' : 'text-white/65'}`}>{subtitle}</p>
+            <p className={`mt-4 text-sm leading-6 ${light ? 'text-[#463F33]' : 'text-white/60'}`}>{subtitle}</p>
           ) : null}
         </div>
       </Reveal>
@@ -388,7 +378,13 @@ function StopScreen({
   );
 }
 
-function StrongCTA({ label = '무료 웨비나 신청하기', href = WEBINAR_CTA }: { label?: string; href?: string }) {
+function StrongCTA({
+  label = '지금 안 바꾸면 계속 똑같습니다',
+  href = WEBINAR_CTA,
+}: {
+  label?: string;
+  href?: string;
+}) {
   return <CTAButton href={href} label={label} className="min-h-14 w-full justify-center px-8 text-[15px]" />;
 }
 
@@ -423,7 +419,7 @@ export function Landing() {
             <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-[#D4AF37]">Charis Beauty</p>
           </div>
           <div className="hidden sm:block">
-            <CTAButton href={WEBINAR_CTA} label="무료 웨비나 신청하기" />
+            <CTAButton href={WEBINAR_CTA} label="지금 안 바꾸면 계속 똑같습니다" />
           </div>
         </Wrap>
       </header>
@@ -433,14 +429,26 @@ export function Landing() {
           <Reveal>
             <DarkPanel className="bg-[#0E0E0E]">
               <Eyebrow>01. Hero</Eyebrow>
-              <h1 className="mt-5 text-[2.65rem] font-semibold leading-[0.96] tracking-[-0.05em] text-white sm:text-[3.35rem]">
-                기술만 배우면 될 줄 알았던
-                <span className="block text-[#F5E6B3]">1인샵 워킹맘 대표님께</span>
+              <h1 className="mt-5 text-[2.9rem] font-semibold leading-[0.9] tracking-[-0.06em] text-white sm:text-[3.7rem]">
+                기술만으론
+                <span className="block text-[#F5E6B3]">절대 안 바뀝니다</span>
               </h1>
 
               <Bubble tone="gold" className="mt-4 font-semibold">
-                스트레스 받는 1인샵 대표 → 효율적인 운영 → 여유 있는 워킹맘 대표
+                1인샵 워킹맘 대표님, 지금도 혼자 다 버티고 계신가요?
               </Bubble>
+
+              <p className="mt-4 text-lg font-medium leading-7 text-white/78">
+                바쁜데 돈은 안 남고, 아이 보며 버티는 하루만 반복된다면 문제는 더 열심히가 아닙니다.
+              </p>
+
+              <div className="mt-4 flex flex-wrap gap-2">
+                {empathyChecklist.slice(0, 5).map((item) => (
+                  <Bubble key={item} className="py-2 text-xs">
+                    {item}
+                  </Bubble>
+                ))}
+              </div>
 
               <div className="mt-5 space-y-3">
                 <DarkPanel className="bg-[#131313] p-4">
@@ -510,9 +518,9 @@ export function Landing() {
               </div>
 
               <div className="mt-6 flex flex-col gap-3">
-                <StrongCTA />
+                <StrongCTA label="지금 안 바꾸면 계속 똑같습니다" />
                 <Bubble className="font-medium">
-                  결, 세금, CS, 상담, 브랜딩, 워킹맘 마인드셋까지. 혼자 버티는 원장이 아니라 시스템으로 운영하는 대표가 되는 법.
+                  시술은 이미 하고 있습니다. 이제 필요한 건 더 버티는 법이 아니라, 덜 무너지는 구조입니다.
                 </Bubble>
               </div>
             </DarkPanel>
@@ -520,16 +528,16 @@ export function Landing() {
         </Block>
 
         <StopScreen
-          lines={['이건 실력 문제가 아닙니다.', '혼자 버티는 구조의 문제입니다.']}
-          subtitle="여기서 사용자가 스크롤을 멈추고, 내 문제를 다시 보게 만들어야 합니다."
+          lines={['잘하는데 안 되는 이유,', '구조 때문입니다.']}
+          subtitle="기술이 모자라서가 아닙니다. 혼자 다 떠안는 방식이 문제입니다."
         />
 
         <Block tone="cream">
           <Reveal>
             <Eyebrow light>03. 내 스토리</Eyebrow>
-            <h2 className="mt-5 text-[2.45rem] font-semibold leading-[0.98] tracking-[-0.05em] sm:text-[3.05rem]">
-              저도 처음엔
-              <span className="block text-[#8A6910]">기술이면 되는 줄 알았습니다.</span>
+            <h2 className="mt-5 text-[2.75rem] font-semibold leading-[0.93] tracking-[-0.06em] sm:text-[3.3rem]">
+              기술이면 될 줄 알았습니다.
+              <span className="block text-[#8A6910]">그래서 더 지쳤습니다.</span>
             </h2>
           </Reveal>
 
@@ -554,9 +562,9 @@ export function Landing() {
         <Block>
           <Reveal>
             <Eyebrow>04. 변화</Eyebrow>
-            <h2 className="mt-5 text-[2.4rem] font-semibold leading-[0.98] tracking-[-0.05em] text-white sm:text-[3rem]">
-              바쁜 대표에서
-              <span className="block text-[#F5E6B3]">구조 가진 대표로</span>
+            <h2 className="mt-5 text-[2.7rem] font-semibold leading-[0.93] tracking-[-0.06em] text-white sm:text-[3.35rem]">
+              바쁨은 줄고
+              <span className="block text-[#F5E6B3]">운영은 남아야 합니다</span>
             </h2>
           </Reveal>
 
@@ -564,7 +572,6 @@ export function Landing() {
             {[
               ['Before', '불안', 'After', '안정'],
               ['Before', '노동', 'After', '시스템'],
-              ['Before', '설명', 'After', '이해되는 구조'],
             ].map(([leftTag, left, rightTag, right]) => (
               <Reveal key={left + right}>
                 <DarkPanel className="bg-[#101010]">
@@ -586,18 +593,21 @@ export function Landing() {
         </Block>
 
         <StopScreen
-          lines={['지금 방식 계속하면', '결과 안 바뀝니다.']}
+          lines={['지금 방식 계속하면', '절대 안 바뀝니다.']}
           tone="cream"
-          subtitle="잘하는데 안 되는 이유는 결국 구조이기 때문입니다."
+          subtitle="잘하는데 안 되는 이유, 결국 구조 때문입니다."
         />
 
         <Block>
           <Reveal>
             <Eyebrow>06. 해결 구조</Eyebrow>
-            <h2 className="mt-5 text-[2.4rem] font-semibold leading-[0.98] tracking-[-0.05em] text-white sm:text-[3rem]">
-              기술 + 경영 + CS + 세금 + 워킹맘 마인드
-              <span className="block text-[#F5E6B3]">이 5개를 한 번에 정리합니다.</span>
+            <h2 className="mt-5 text-[2.7rem] font-semibold leading-[0.93] tracking-[-0.06em] text-white sm:text-[3.35rem]">
+              기술만 배우면
+              <span className="block text-[#F5E6B3]">다시 같은 자리입니다</span>
             </h2>
+            <p className="mt-4 text-base leading-7 text-white/70">
+              기술, 경영, CS, 세금, 워킹맘 마인드. 이 다섯 개가 같이 묶여야 흐름이 바뀝니다.
+            </p>
           </Reveal>
 
           <div className="mt-5 space-y-3">
@@ -624,7 +634,7 @@ export function Landing() {
 
           <Reveal delay={0.06}>
             <div className="mt-5">
-              <StrongCTA label="지금 무료 신청하기" />
+              <StrongCTA label="지금 안 바꾸면 계속 똑같습니다" />
             </div>
           </Reveal>
         </Block>
@@ -632,9 +642,9 @@ export function Landing() {
         <Block>
           <Reveal>
             <Eyebrow>07. 점 VS 결</Eyebrow>
-            <h2 className="mt-5 text-[2.35rem] font-semibold leading-[0.98] tracking-[-0.05em] text-white sm:text-[2.95rem]">
-              점으로 찍는 시술과
-              <span className="block text-[#F5E6B3]">결로 보이는 시술은 다릅니다.</span>
+            <h2 className="mt-5 text-[2.65rem] font-semibold leading-[0.93] tracking-[-0.06em] text-white sm:text-[3.2rem]">
+              설명하면 늦습니다.
+              <span className="block text-[#F5E6B3]">결과가 먼저 보여야 움직입니다.</span>
             </h2>
           </Reveal>
 
@@ -681,9 +691,9 @@ export function Landing() {
         <Block className="bg-[#090909]">
           <Reveal>
             <Eyebrow>08. 결과</Eyebrow>
-            <h2 className="mt-5 text-[2.35rem] font-semibold leading-[0.98] tracking-[-0.05em] text-white sm:text-[2.95rem]">
-              고객은 설명보다
-              <span className="block text-[#F5E6B3]">결과를 먼저 봅니다.</span>
+            <h2 className="mt-5 text-[2.65rem] font-semibold leading-[0.93] tracking-[-0.06em] text-white sm:text-[3.2rem]">
+              설명하면 놓칩니다.
+              <span className="block text-[#F5E6B3]">결과 먼저 보여야 잡힙니다.</span>
             </h2>
           </Reveal>
 
@@ -694,8 +704,8 @@ export function Landing() {
                 title={title}
                 text={
                   index === 0
-                    ? '결과가 먼저 보이면 상담의 톤이 달라집니다.'
-                    : '설명보다 먼저 이해되는 결과 구조가 필요합니다.'
+                    ? '결과 먼저 보이면, 질문부터 달라집니다.'
+                    : '이해시키려 하지 말고 먼저 보여줘야 합니다.'
                 }
                 index={index}
                 kind={index === 0 ? 'image' : 'placeholder'}
@@ -707,9 +717,9 @@ export function Landing() {
         <Block>
           <Reveal>
             <Eyebrow>09. 영상</Eyebrow>
-            <h2 className="mt-5 text-[2.35rem] font-semibold leading-[0.98] tracking-[-0.05em] text-white sm:text-[2.95rem]">
-              짧은 영상 하나가
-              <span className="block text-[#F5E6B3]">상담 시간을 줄입니다.</span>
+            <h2 className="mt-5 text-[2.65rem] font-semibold leading-[0.93] tracking-[-0.06em] text-white sm:text-[3.2rem]">
+              한 번 보여주면
+              <span className="block text-[#F5E6B3]">설명은 절반으로 줄어듭니다.</span>
             </h2>
           </Reveal>
 
@@ -727,16 +737,16 @@ export function Landing() {
         </Block>
 
         <StopScreen
-          lines={['고객이 이해하지 못하면', '신청하지 않습니다.']}
-          subtitle="사용자가 읽는 페이지가 아니라, 이해하면서 다음으로 넘어가는 페이지여야 합니다."
+          lines={['고객이 못 알아들으면', '절대 신청하지 않습니다.']}
+          subtitle="좋아 보여도 안 됩니다. 바로 이해돼야 움직입니다."
         />
 
         <Block>
           <Reveal>
             <Eyebrow>11. 해결 구조</Eyebrow>
-            <h2 className="mt-5 text-[2.35rem] font-semibold leading-[0.98] tracking-[-0.05em] text-white sm:text-[2.95rem]">
+            <h2 className="mt-5 text-[2.65rem] font-semibold leading-[0.93] tracking-[-0.06em] text-white sm:text-[3.2rem]">
               이제는 기술자가 아니라
-              <span className="block text-[#F5E6B3]">대표로 배워야 합니다.</span>
+              <span className="block text-[#F5E6B3]">대표로 배워야 남습니다.</span>
             </h2>
           </Reveal>
 
@@ -778,9 +788,9 @@ export function Landing() {
         <Block tone="cream">
           <Reveal>
             <Eyebrow light>12. 기술 커리큘럼</Eyebrow>
-            <h2 className="mt-5 text-[2.25rem] font-semibold leading-[0.98] tracking-[-0.05em] sm:text-[2.85rem]">
-              기술도
-              <span className="block text-[#8A6910]">결과 중심으로 다시 배웁니다.</span>
+            <h2 className="mt-5 text-[2.5rem] font-semibold leading-[0.94] tracking-[-0.06em] sm:text-[3.05rem]">
+              손은 이미 움직입니다.
+              <span className="block text-[#8A6910]">이제 결과가 보이게 배워야 합니다.</span>
             </h2>
           </Reveal>
 
@@ -799,9 +809,9 @@ export function Landing() {
         <Block>
           <Reveal>
             <Eyebrow>13. 경영 커리큘럼</Eyebrow>
-            <h2 className="mt-5 text-[2.25rem] font-semibold leading-[0.98] tracking-[-0.05em] text-white sm:text-[2.85rem]">
-              두피문신도
-              <span className="block text-[#F5E6B3]">경영으로 배워야 오래 갑니다.</span>
+            <h2 className="mt-5 text-[2.5rem] font-semibold leading-[0.94] tracking-[-0.06em] text-white sm:text-[3.05rem]">
+              잘하는데 안 남는 이유,
+              <span className="block text-[#F5E6B3]">경영을 안 배웠기 때문입니다.</span>
             </h2>
           </Reveal>
 
@@ -824,9 +834,9 @@ export function Landing() {
         <Block tone="cream">
           <Reveal>
             <Eyebrow light>14. 워킹맘 마인드셋</Eyebrow>
-            <h2 className="mt-5 text-[2.25rem] font-semibold leading-[0.98] tracking-[-0.05em] sm:text-[2.85rem]">
-              일도 아이도
-              <span className="block text-[#8A6910]">놓치고 싶지 않은 대표님께</span>
+            <h2 className="mt-5 text-[2.5rem] font-semibold leading-[0.94] tracking-[-0.06em] sm:text-[3.05rem]">
+              잘하고 싶은 마음만으론
+              <span className="block text-[#8A6910]">오래 못 버팁니다.</span>
             </h2>
           </Reveal>
 
@@ -847,16 +857,16 @@ export function Landing() {
         </Block>
 
         <StopScreen
-          lines={['혼자 잘하는 사람보다,', '구조를 가진 사람이 오래 갑니다.']}
+          lines={['혼자 잘하는 사람보다,', '구조 가진 사람이 끝까지 갑니다.']}
           tone="cream"
         />
 
         <Block>
           <Reveal>
             <Eyebrow>15. 후기 / 증거</Eyebrow>
-            <h2 className="mt-5 text-[2.25rem] font-semibold leading-[0.98] tracking-[-0.05em] text-white sm:text-[2.85rem]">
-              카톡형 후기와 증거는
-              <span className="block text-[#F5E6B3]">신뢰를 빠르게 만듭니다.</span>
+            <h2 className="mt-5 text-[2.5rem] font-semibold leading-[0.94] tracking-[-0.06em] text-white sm:text-[3.05rem]">
+              말보다 강한 건
+              <span className="block text-[#F5E6B3]">실제 반응과 실제 증거입니다.</span>
             </h2>
           </Reveal>
 
@@ -887,9 +897,9 @@ export function Landing() {
         <Block id="webinar" className="bg-[#090909]">
           <Reveal>
             <Eyebrow>16. 무료 웨비나 구성</Eyebrow>
-            <h2 className="mt-5 text-[2.25rem] font-semibold leading-[0.98] tracking-[-0.05em] text-white sm:text-[2.85rem]">
-              무료 웨비나 한 번으로
-              <span className="block text-[#F5E6B3]">내 위치와 다음 단계가 선명해집니다.</span>
+            <h2 className="mt-5 text-[2.5rem] font-semibold leading-[0.94] tracking-[-0.06em] text-white sm:text-[3.05rem]">
+              무료로 듣는 한 번이
+              <span className="block text-[#F5E6B3]">지금 흐름을 완전히 바꿉니다.</span>
             </h2>
           </Reveal>
 
@@ -925,9 +935,9 @@ export function Landing() {
               </div>
 
               <div className="mt-5 flex flex-col gap-3">
-                <StrongCTA />
+                <StrongCTA label="지금 안 바꾸면 계속 똑같습니다" />
                 <Bubble className="font-medium">
-                  지금 신청해야 하는 이유: 대표의 시간과 에너지가 더 늦기 전에 구조를 바꿔야 하기 때문입니다.
+                  더 늦으면 또 같은 달을 반복합니다. 지금 끊어야 다음 달이 달라집니다.
                 </Bubble>
               </div>
             </DarkPanel>
@@ -942,15 +952,15 @@ export function Landing() {
                 최종 CTA
               </div>
               <h2 className="mt-5 text-[2.45rem] font-semibold leading-[0.96] tracking-[-0.05em] text-white sm:text-[3rem]">
-                혼자 버티는 원장에서
-                <span className="block text-[#F5E6B3]">시스템으로 운영하는 대표로 넘어가세요.</span>
+                계속 버틸 건가요?
+                <span className="block text-[#F5E6B3]">아니면 지금 바꿀 건가요?</span>
               </h2>
               <Bubble className="mt-4 font-medium">
-                이제는 기술자가 아니라 대표로 배워야 합니다.
+                잘하는데 안 되는 흐름, 여기서 끊어야 합니다.
               </Bubble>
               <div className="mt-5 flex flex-col gap-3">
-                <StrongCTA href={FINAL_CTA} label="무료 웨비나 신청하기" />
-                <Bubble className="text-sm">기술만으로는 부족합니다. 구조를 가진 사람이 오래 갑니다.</Bubble>
+                <StrongCTA href={FINAL_CTA} label="지금 안 바꾸면 계속 똑같습니다" />
+                <Bubble className="text-sm">기술만으로는 절대 안 바뀝니다. 구조를 바꿔야 결과가 바뀝니다.</Bubble>
               </div>
             </DarkPanel>
           </Reveal>
@@ -964,7 +974,7 @@ export function Landing() {
             onClick={scrollToWebinar}
             className="pointer-events-auto flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#D4AF37] via-[#F5E6B3] to-[#C9A227] px-5 py-4 text-sm font-semibold uppercase tracking-[0.2em] text-black transition-transform duration-300 active:scale-[0.98]"
           >
-            <span>무료 웨비나 신청하기</span>
+            <span>지금 안 바꾸면 계속 똑같습니다</span>
           </button>
         </div>
       </div>
