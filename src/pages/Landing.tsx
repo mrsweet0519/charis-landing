@@ -330,7 +330,7 @@ function HeroPortraitCard() {
 }
 
 function Wrap({ children, className = '' }: { children: ReactNode; className?: string }) {
-  return <div className={`mx-auto w-full max-w-[640px] ${className}`.trim()}>{children}</div>;
+  return <div className={`mx-auto w-full max-w-[680px] lg:max-w-[960px] ${className}`.trim()}>{children}</div>;
 }
 
 function Block({
@@ -347,7 +347,7 @@ function Block({
   const toneClass = tone === 'cream' ? 'bg-[#F5EDDC] text-[#111111]' : 'bg-transparent text-white';
 
   return (
-    <section id={id} className={`px-4 py-5 sm:px-5 sm:py-7 ${toneClass} ${className}`.trim()}>
+    <section id={id} className={`px-4 py-5 sm:px-5 sm:py-7 lg:px-6 lg:py-9 ${toneClass} ${className}`.trim()}>
       <Wrap>{children}</Wrap>
     </section>
   );
@@ -470,6 +470,7 @@ function StrongCTA({
 
 export function Landing() {
   const [countdown, setCountdown] = useState(() => getCountdown(DEADLINE));
+  const [showStickyCTA, setShowStickyCTA] = useState(false);
 
   useEffect(() => {
     const intervalId = window.setInterval(() => {
@@ -477,6 +478,17 @@ export function Landing() {
     }, 1000);
 
     return () => window.clearInterval(intervalId);
+  }, []);
+
+  useEffect(() => {
+    const onScroll = () => {
+      setShowStickyCTA(window.scrollY > 560);
+    };
+
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   const scrollToWebinar = () => {
@@ -499,33 +511,33 @@ export function Landing() {
             <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-[#D4AF37]">Charis Beauty</p>
           </div>
           <div className="hidden sm:block">
-            <CTAButton href={WEBINAR_CTA} label="지금 안 바꾸면 계속 똑같습니다" />
+            <CTAButton href={WEBINAR_CTA} label="지금 안 바꾸면 계속 똑같습니다" variant="secondary" />
           </div>
         </Wrap>
       </header>
 
       <main className="pb-28 sm:pb-0">
-        <section className="px-3 pb-5 pt-3 sm:px-4 sm:pb-6 sm:pt-4">
-          <div className="mx-auto w-full max-w-[680px]">
+        <section className="px-3 pb-5 pt-3 sm:px-4 sm:pb-6 sm:pt-4 lg:px-6 lg:pb-8">
+          <div className="mx-auto w-full max-w-[760px] lg:max-w-[980px]">
             <Reveal>
-              <div>
+              <div className="mx-auto max-w-[760px]">
                 <HeroPortraitCard />
               </div>
 
-              <p className="mt-2.5 text-[1rem] font-semibold leading-[1.22] tracking-[-0.02em] text-white sm:text-[1.08rem]">
+              <p className="mt-3 text-[1rem] font-semibold leading-[1.22] tracking-[-0.02em] text-white sm:text-[1.08rem] lg:mx-auto lg:max-w-[720px] lg:text-[1.14rem]">
                 <span className="block">잘하는데 예약이 안 찬다면</span>
               </p>
 
-              <h1 className="mt-2 text-[2.36rem] font-semibold leading-[1.1] tracking-[-0.03em] text-white sm:text-[2.8rem]">
+              <h1 className="mt-2 text-[2.36rem] font-semibold leading-[1.1] tracking-[-0.03em] text-white sm:text-[2.8rem] lg:max-w-[760px] lg:text-[3.3rem] lg:leading-[1.02]">
                 <span className="block">문제는 기술이 아니라</span>
                 <span className="block text-[#F5E6B3]">운영 구조입니다</span>
               </h1>
 
-              <p className="mt-2 text-[13px] leading-5 text-white/62">
+              <p className="mt-2 text-[13px] leading-5 text-white/62 lg:max-w-[620px] lg:text-[14px]">
                 무료 웨비나에서 내 운영 구조를 먼저 점검합니다.
               </p>
 
-              <div className="mt-3">
+              <div className="mt-3 lg:max-w-[520px]">
                 <CTAButton
                   href={WEBINAR_CTA}
                   label="지금 안 바꾸면 계속 똑같습니다"
@@ -549,7 +561,7 @@ export function Landing() {
             </div>
           </Reveal>
 
-          <div className="mt-3 grid grid-cols-2 gap-2">
+          <div className="mt-3 grid grid-cols-2 gap-2.5 lg:grid-cols-3">
             {empathyChecklist.map((item) => (
               <Bubble key={item} className="min-h-[36px] px-3 py-1.5 text-[11px] font-semibold leading-[1.25]">
                 {item}
@@ -558,7 +570,7 @@ export function Landing() {
           </div>
 
           <Reveal>
-            <div className="mt-4">
+            <div className="mt-5 lg:mt-6">
               <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-white/45">
                 Change Flow
               </p>
@@ -621,7 +633,7 @@ export function Landing() {
             </h2>
           </Reveal>
 
-          <div className="mt-4 space-y-2.5">
+          <div className="mt-5 grid gap-3 md:grid-cols-2 lg:mt-6 lg:grid-cols-4">
             {storyLines.map((story, index) => (
               <Reveal key={story.lines.join('-')} delay={index * 0.04}>
                 <LightPanel className="p-3">
@@ -649,7 +661,7 @@ export function Landing() {
             </h2>
           </Reveal>
 
-          <div className="mt-4 space-y-2.5">
+          <div className="mt-5 grid gap-3 md:grid-cols-2 lg:mt-6">
             {[
               ['Before', '불안', 'After', '안정'],
               ['Before', '노동', 'After', '시스템'],
@@ -688,7 +700,7 @@ export function Landing() {
             </h2>
           </Reveal>
 
-          <div className="mt-4 space-y-2.5">
+          <div className="mt-5 grid gap-3 md:grid-cols-3 lg:mt-6">
             {structurePillars.map((item, index) => {
               const Icon = item.icon;
 
@@ -713,7 +725,7 @@ export function Landing() {
           </div>
 
           <Reveal delay={0.06}>
-            <div className="mt-5">
+            <div className="mt-5 lg:mt-6 lg:max-w-[420px]">
               <StrongCTA label="지금 안 바꾸면 계속 똑같습니다" variant="secondary" />
             </div>
           </Reveal>
@@ -735,9 +747,9 @@ export function Landing() {
             />
           </Reveal>
 
-          <div className="mt-4 space-y-2.5">
+          <div className="mt-5 grid gap-3 lg:mt-6 lg:grid-cols-[1.15fr_0.85fr]">
             <Reveal>
-              <DarkPanel>
+              <DarkPanel className="bg-[#0F0F0F]">
                 <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#D4AF37]">
                   <ScanLine className="h-3.5 w-3.5" />
                   타이트샷
@@ -749,7 +761,7 @@ export function Landing() {
             </Reveal>
 
             <Reveal delay={0.05}>
-              <DarkPanel>
+              <DarkPanel className="bg-[#151515]">
                 <div className="space-y-2">
                   {[
                     ['보이는 인상', '점감', '결감'],
@@ -803,7 +815,7 @@ export function Landing() {
             </h2>
           </Reveal>
 
-          <div className="mt-4 space-y-2.5">
+          <div className="mt-5 grid gap-3 md:grid-cols-2 lg:mt-6">
             {[
               ['가마 라인 영상', '짧은 시연 영상 교체 영역'],
               ['흉터 라인 영상', '짧은 시연 영상 교체 영역'],
@@ -830,7 +842,7 @@ export function Landing() {
             </h2>
           </Reveal>
 
-          <div className="mt-4 space-y-2.5">
+          <div className="mt-5 grid gap-3 md:grid-cols-3 lg:mt-6">
             {[
               {
                 icon: <Gem className="h-4 w-4" />,
@@ -874,7 +886,7 @@ export function Landing() {
             </h2>
           </Reveal>
 
-          <div className="mt-4 grid gap-2.5">
+          <div className="mt-5 grid gap-2.5 md:grid-cols-2 lg:mt-6">
             {technicalCurriculum.map((item, index) => (
               <Reveal key={item} delay={index * 0.03}>
                 <LightPanel className="flex items-center gap-3 py-3">
@@ -895,7 +907,7 @@ export function Landing() {
             </h2>
           </Reveal>
 
-          <div className="mt-4 grid gap-2.5">
+          <div className="mt-5 grid gap-2.5 md:grid-cols-2 lg:mt-6">
             {businessCurriculum.map((item, index) => (
               <Reveal key={item} delay={index * 0.03}>
                 <DarkPanel className="bg-[#101010]">
@@ -920,7 +932,7 @@ export function Landing() {
             </h2>
           </Reveal>
 
-          <div className="mt-4 space-y-2.5">
+          <div className="mt-5 grid gap-2.5 md:grid-cols-2 lg:mt-6">
             {mindsetPoints.map((item, index) => (
               <Reveal key={item} delay={index * 0.03}>
                 <LightPanel className="flex items-center gap-3 py-3">
@@ -950,7 +962,7 @@ export function Landing() {
             </h2>
           </Reveal>
 
-          <div className="mt-4 space-y-2.5">
+          <div className="mt-5 grid gap-3 lg:mt-6 lg:grid-cols-3">
             {reviewCards.map((item, index) => (
               <Reveal key={item.name} delay={index * 0.04}>
                 <ReviewBubbleCard {...item} />
@@ -958,7 +970,7 @@ export function Landing() {
             ))}
           </div>
 
-          <div className="mt-4 space-y-2.5">
+          <div className="mt-5 grid gap-3 lg:mt-6 lg:grid-cols-2">
             <Reveal>
               <CapturePlaceholder title="💬 카톡 캡처" description="문의 흐름이 바로 보이게." />
             </Reveal>
@@ -974,7 +986,7 @@ export function Landing() {
           </div>
         </Block>
 
-        <Block id="webinar" className="bg-[#090909] pt-6 sm:pt-7">
+        <Block id="webinar" className="bg-[#090909] pt-6 sm:pt-7 lg:pt-9">
           <Reveal>
             <Eyebrow>16. 무료 웨비나 구성</Eyebrow>
             <h2 className="mt-3 text-[2rem] font-semibold leading-[1.02] tracking-[-0.04em] text-white sm:text-[2.65rem]">
@@ -984,7 +996,7 @@ export function Landing() {
           </Reveal>
 
           <Reveal delay={0.04} className="mt-3.5">
-            <DarkPanel className="border-[#D4AF37]/20 bg-[radial-gradient(circle_at_top,_rgba(212,175,55,0.18),_transparent_34%),linear-gradient(135deg,_#171717_0%,_#0A0A0A_60%,_#050505_100%)] p-4">
+            <DarkPanel className="border-[#D4AF37]/20 bg-[radial-gradient(circle_at_top,_rgba(212,175,55,0.18),_transparent_34%),linear-gradient(135deg,_#171717_0%,_#0A0A0A_60%,_#050505_100%)] p-4 lg:p-5">
               <div className="flex flex-wrap gap-2">
                 <Bubble tone="gold" className="py-2 text-[11px] font-semibold uppercase tracking-[0.2em]">
                   선착순 50명
@@ -1003,7 +1015,7 @@ export function Landing() {
                 ))}
               </div>
 
-              <div className="mt-4 space-y-2">
+              <div className="mt-4 grid gap-2 lg:grid-cols-2">
                 {webinarFlow.map((item, index) => (
                   <div key={item} className="flex items-start gap-3 rounded-[0.95rem] border border-white/8 bg-[#151515] px-3 py-2.5">
                     <div className="flex h-7 w-7 items-center justify-center rounded-full bg-[#D4AF37] text-[11px] font-semibold text-black">
@@ -1047,12 +1059,16 @@ export function Landing() {
         </Block>
       </main>
 
-      <div className="pointer-events-none fixed inset-x-0 bottom-0 z-[60] px-4 pb-[calc(0.75rem+env(safe-area-inset-bottom))] pt-3 sm:hidden">
-        <div className="mx-auto w-full max-w-[620px] rounded-[1.25rem] border border-[#D4AF37]/12 bg-black/70 p-1.5 shadow-[0_-8px_28px_rgba(0,0,0,0.32)] backdrop-blur-xl">
+      <div
+        className={`pointer-events-none fixed inset-x-0 bottom-0 z-[60] px-4 pb-[calc(0.5rem+env(safe-area-inset-bottom))] pt-2 transition-all duration-300 sm:hidden ${
+          showStickyCTA ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
+        }`}
+      >
+        <div className="mx-auto w-full max-w-[620px] rounded-[1.15rem] border border-[#D4AF37]/10 bg-black/58 p-1.5 shadow-[0_-6px_18px_rgba(0,0,0,0.24)] backdrop-blur-xl">
           <button
             type="button"
             onClick={scrollToWebinar}
-            className="pointer-events-auto flex w-full items-center justify-center gap-2 rounded-full border border-[#D4AF37]/35 bg-[#141414] px-5 py-3 text-[13px] font-semibold uppercase tracking-[0.16em] text-[#F5E6B3] transition-transform duration-300 active:scale-[0.98]"
+            className="pointer-events-auto flex w-full items-center justify-center gap-2 rounded-full border border-[#D4AF37]/25 bg-[#141414]/92 px-5 py-2.5 text-[12px] font-semibold uppercase tracking-[0.14em] text-[#F5E6B3] transition-transform duration-300 active:scale-[0.98]"
           >
             <span>지금 안 바꾸면 계속 똑같습니다</span>
           </button>
