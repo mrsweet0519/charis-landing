@@ -273,19 +273,19 @@ function HeroPortraitCard() {
 
   if (!imageFailed) {
     return (
-      <div className="relative overflow-hidden rounded-[1.5rem] border border-white/8 bg-[radial-gradient(circle_at_top,_rgba(212,175,55,0.14),_transparent_36%),linear-gradient(180deg,_#111111_0%,_#090909_100%)] shadow-[0_22px_44px_rgba(0,0,0,0.34)]">
-        <div className="relative flex h-[352px] items-center justify-center overflow-hidden bg-[#101010] sm:h-[372px]">
+      <div className="mx-auto w-full max-w-[360px] overflow-hidden rounded-[1.5rem] border border-white/8 bg-[radial-gradient(circle_at_top,_rgba(212,175,55,0.12),_transparent_36%),linear-gradient(180deg,_#111111_0%,_#050505_100%)] shadow-[0_22px_44px_rgba(0,0,0,0.34)] sm:max-w-[400px]">
+        <div className="relative aspect-[4/5] max-h-[420px] w-full overflow-hidden bg-[#050505]">
           <img
             src="/images/ceo.jpg"
             alt="카리스뷰티 대표"
-            className="h-full w-full object-cover object-[center_18%] sm:object-[center_18%]"
+            className="h-full w-full object-contain object-center pt-3"
             loading="eager"
             fetchPriority="high"
             onError={() => setImageFailed(true)}
           />
-          <div className="absolute inset-0 bg-black/10" />
-          <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black via-black/42 to-transparent px-5 pb-5 pt-16">
-            <p className="text-[13px] font-semibold tracking-[-0.02em] text-white/94">
+          <div className="absolute inset-0 bg-black/8" />
+          <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black via-black/38 to-transparent px-4 pb-4 pt-14">
+            <p className="text-[12px] font-semibold tracking-[-0.01em] text-white/90">
               대표의 얼굴이 먼저 신뢰를 만듭니다
             </p>
           </div>
@@ -295,7 +295,7 @@ function HeroPortraitCard() {
   }
 
   return (
-    <div className="relative overflow-hidden rounded-[1.5rem] border border-white/8 bg-[radial-gradient(circle_at_top,_rgba(212,175,55,0.18),_transparent_34%),linear-gradient(180deg,_#151515_0%,_#0C0C0C_100%)] p-4 shadow-[0_22px_44px_rgba(0,0,0,0.34)]">
+    <div className="mx-auto w-full max-w-[360px] overflow-hidden rounded-[1.5rem] border border-white/8 bg-[radial-gradient(circle_at_top,_rgba(212,175,55,0.18),_transparent_34%),linear-gradient(180deg,_#151515_0%,_#0C0C0C_100%)] p-4 shadow-[0_22px_44px_rgba(0,0,0,0.34)] sm:max-w-[400px]">
       <div className="flex items-center justify-between gap-3">
         <div>
           <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#D4AF37]">
@@ -311,7 +311,7 @@ function HeroPortraitCard() {
         </div>
       </div>
 
-      <div className="relative mt-4 flex h-[352px] items-end justify-center overflow-hidden rounded-[1.25rem] border border-white/8 bg-[radial-gradient(circle_at_top,_rgba(245,230,179,0.14),_transparent_32%),#171717] sm:h-[372px]">
+      <div className="relative mt-4 flex aspect-[4/5] max-h-[420px] items-end justify-center overflow-hidden rounded-[1.25rem] border border-white/8 bg-[radial-gradient(circle_at_top,_rgba(245,230,179,0.14),_transparent_32%),#171717]">
         <div className="absolute inset-x-0 top-0 h-20 bg-[linear-gradient(180deg,rgba(212,175,55,0.18),transparent)]" />
         <div className="absolute left-6 top-6 rounded-full bg-black/50 px-3 py-2 text-xs font-semibold text-white/75">
           ⚠️ 바쁨
@@ -507,39 +507,40 @@ export function Landing() {
                 ⚠ 1인샵 대표님
               </div>
 
-              <p className="mt-3 text-[1.12rem] font-semibold leading-[1.22] tracking-[-0.04em] text-white sm:text-[1.22rem]">
-                <span className="block">잘하는데 예약이 안 찬다면,</span>
-                <span className="block text-[#F5E6B3]">문제는 기술이 아닙니다.</span>
+              <p className="mt-3 text-[1rem] font-semibold leading-[1.22] tracking-[-0.02em] text-white sm:text-[1.08rem]">
+                <span className="block">잘하는데 예약이 안 찬다면</span>
               </p>
 
-              <h1 className="mt-3 text-[2.62rem] font-semibold leading-[1.04] tracking-[-0.06em] text-white sm:text-[3.15rem]">
-                <span className="block">기술만 배우면</span>
-                <span className="block">
-                  <span className="text-[#F5E6B3]">계속</span> 혼자
-                </span>
-                <span className="block">버티게 됩니다</span>
+              <h1 className="mt-2.5 text-[2.5rem] font-semibold leading-[1.1] tracking-[-0.04em] text-white sm:text-[2.9rem]">
+                <span className="block">문제는 기술이 아니라</span>
+                <span className="block text-[#F5E6B3]">운영 구조입니다</span>
               </h1>
-
-              <p className="mt-3 text-[14px] font-semibold leading-5 text-white/74">
-                지금 안 바꾸면 계속 똑같습니다.
-              </p>
 
               <div className="mt-4">
                 <CTAButton
                   href={WEBINAR_CTA}
                   label="지금 안 바꾸면 계속 똑같습니다"
-                  className="min-h-[62px] w-full justify-center px-7 text-[15px]"
+                  className="min-h-[54px] w-full justify-center px-6 text-[14px]"
                 />
+                <p className="mt-2 text-[13px] leading-5 text-white/62">
+                  무료 웨비나에서 내 운영 구조를 먼저 점검합니다.
+                </p>
               </div>
             </Reveal>
           </div>
         </section>
 
-        <Block className="pt-0 pb-5 sm:pb-6">
+        <Block className="pt-1 pb-5 sm:pb-6">
           <Reveal>
-            <Bubble tone="gold" className="px-3 py-2 text-[13px] font-semibold leading-[1.35]">
-              1인샵 대표님, 지금도 혼자 다 하고 계신가요?
-            </Bubble>
+            <div>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#D4AF37]">
+                02. 공감 체크리스트
+              </p>
+              <h2 className="mt-2 text-[1.7rem] font-semibold leading-[1.14] tracking-[-0.04em] text-white sm:text-[2rem]">
+                혹시 지금도
+                <span className="block text-[#F5E6B3]">혼자 다 하고 있나요?</span>
+              </h2>
+            </div>
           </Reveal>
 
           <div className="mt-3 grid grid-cols-2 gap-2">
@@ -549,6 +550,17 @@ export function Landing() {
               </Bubble>
             ))}
           </div>
+
+          <Reveal>
+            <div className="mt-4">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-white/45">
+                Change Flow
+              </p>
+              <p className="mt-2 text-sm font-semibold leading-5 text-white/76">
+                바쁨 → 시스템 → 워킹맘
+              </p>
+            </div>
+          </Reveal>
 
           <div className="mt-3 -mx-1 flex snap-x snap-mandatory gap-2 overflow-x-auto px-1 pb-1 sm:mx-0 sm:grid sm:grid-cols-3 sm:overflow-visible sm:px-0 sm:pb-0">
             <DarkPanel className="min-w-[190px] snap-start bg-[#131313] p-3 sm:min-w-0">
