@@ -35,6 +35,10 @@ const WEBINAR_CTA = '#webinar';
 const FINAL_CTA = '#final-cta';
 const DEADLINE = new Date('2026-05-10T23:59:59+09:00').getTime();
 
+void Check;
+void Hand;
+void Play;
+
 const empathyChecklist = [
   '시술도 내가',
   '상담도 내가',
@@ -44,6 +48,8 @@ const empathyChecklist = [
   '고객 설득도 내가',
   '아이 케어까지 내가',
 ];
+
+void empathyChecklist;
 
 const structurePillars = [
   {
@@ -113,6 +119,14 @@ const webinarFlow = [
   '왜 기술만으로는 안 되는가',
   '결로 고단가 만드는 구조',
   '경영 커리큘럼 소개',
+];
+
+const storyLines = [
+  '처음엔 기술만 좋으면 예약도 따라올 줄 알았습니다.',
+  '광고비는 계속 나가는데, 문의와 예약은 기대만큼 늘지 않았습니다.',
+  '상담도, CS도, 세금도, 운영도 결국 전부 제 몫이었습니다.',
+  '아이를 돌보며 버티는 하루가 반복되자 더 열심히 하는 것만으로는 안 된다는 걸 알았습니다.',
+  '결국 문제는 기술이 아니라 혼자 버티는 구조였고, 그래서 기술과 경영을 함께 다루게 됐습니다.',
 ];
 
 const reviewCards = [
