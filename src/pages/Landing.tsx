@@ -273,12 +273,12 @@ function HeroPortraitCard() {
 
   if (!imageFailed) {
     return (
-      <div className="relative -mx-2 overflow-hidden rounded-[1.8rem] bg-[linear-gradient(180deg,_rgba(255,255,255,0.02),_rgba(255,255,255,0))] sm:mx-0">
+      <div className="relative -mx-3 overflow-hidden rounded-[1.65rem] bg-[linear-gradient(180deg,_rgba(255,255,255,0.02),_rgba(255,255,255,0))] sm:mx-0">
         <div className="relative aspect-[4/5] max-h-[420px] w-full overflow-hidden bg-[#050505] sm:max-h-[440px]">
           <img
             src="/images/ceo.jpg"
             alt="카리스뷰티 대표"
-            className="h-full w-full object-cover object-[center_12%]"
+            className="h-full w-full object-cover object-[center_10%]"
             loading="eager"
             fetchPriority="high"
             onError={() => setImageFailed(true)}
@@ -505,41 +505,38 @@ export function Landing() {
       </header>
 
       <main className="pb-28 sm:pb-0">
-        <section className="px-3 pb-4 pt-3 sm:px-4 sm:pb-5 sm:pt-4">
+        <section className="px-3 pb-5 pt-3 sm:px-4 sm:pb-6 sm:pt-4">
           <div className="mx-auto w-full max-w-[680px]">
             <Reveal>
               <div>
                 <HeroPortraitCard />
               </div>
 
-              <div className="mt-2.5 inline-flex items-center rounded-full border border-[#D4AF37]/15 bg-[#0E0E0E] px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#F5E6B3]">
-                ⚠ 1인샵 대표님
-              </div>
-
               <p className="mt-2.5 text-[1rem] font-semibold leading-[1.22] tracking-[-0.02em] text-white sm:text-[1.08rem]">
                 <span className="block">잘하는데 예약이 안 찬다면</span>
               </p>
 
-              <h1 className="mt-2 text-[2.5rem] font-semibold leading-[1.1] tracking-[-0.04em] text-white sm:text-[2.9rem]">
+              <h1 className="mt-2 text-[2.36rem] font-semibold leading-[1.1] tracking-[-0.03em] text-white sm:text-[2.8rem]">
                 <span className="block">문제는 기술이 아니라</span>
                 <span className="block text-[#F5E6B3]">운영 구조입니다</span>
               </h1>
 
-              <div className="mt-3.5">
+              <p className="mt-2 text-[13px] leading-5 text-white/62">
+                무료 웨비나에서 내 운영 구조를 먼저 점검합니다.
+              </p>
+
+              <div className="mt-3">
                 <CTAButton
                   href={WEBINAR_CTA}
                   label="지금 안 바꾸면 계속 똑같습니다"
                   className="min-h-[54px] w-full justify-center px-6 text-[14px]"
                 />
-                <p className="mt-2 text-[13px] leading-5 text-white/62">
-                  무료 웨비나에서 내 운영 구조를 먼저 점검합니다.
-                </p>
               </div>
             </Reveal>
           </div>
         </section>
 
-        <Block className="pt-3 pb-5 sm:pt-4 sm:pb-6">
+        <Block className="pt-5 pb-6 sm:pt-6 sm:pb-7">
           <Reveal>
             <div>
               <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#D4AF37]">
@@ -615,10 +612,10 @@ export function Landing() {
           subtitle="기술이 모자라서가 아닙니다. 혼자 다 떠안는 방식이 문제입니다."
         />
 
-        <Block tone="cream">
+        <Block tone="cream" className="pt-6 pb-6 sm:pt-7 sm:pb-7">
           <Reveal>
             <Eyebrow light>03. 내 스토리</Eyebrow>
-            <h2 className="mt-4 text-[2.35rem] font-semibold leading-[1.04] tracking-[-0.05em] sm:text-[2.9rem]">
+            <h2 className="mt-4 text-[2.05rem] font-semibold leading-[1.02] tracking-[-0.04em] sm:text-[2.55rem]">
               기술이면 될 줄 알았습니다.
               <span className="block text-[#8A6910]">그래서 더 지쳤습니다.</span>
             </h2>
@@ -643,7 +640,7 @@ export function Landing() {
           </div>
         </Block>
 
-        <Block>
+        <Block className="pt-6 sm:pt-7">
           <Reveal>
             <Eyebrow>04. 변화</Eyebrow>
             <h2 className="mt-4 text-[2.2rem] font-semibold leading-[0.96] tracking-[-0.04em] text-white sm:text-[3.1rem]">
@@ -682,7 +679,7 @@ export function Landing() {
           subtitle="잘하는데 안 되는 이유, 결국 구조 때문입니다."
         />
 
-        <Block>
+        <Block className="pt-6 sm:pt-7">
           <Reveal>
             <Eyebrow>06. 해결 구조</Eyebrow>
             <h2 className="mt-4 text-[2.2rem] font-semibold leading-[0.96] tracking-[-0.04em] text-white sm:text-[3.1rem]">
@@ -771,7 +768,7 @@ export function Landing() {
           </div>
         </Block>
 
-        <Block className="bg-[#090909]">
+        <Block className="bg-[#090909] pt-6 sm:pt-7">
           <Reveal>
             <Eyebrow>08. 결과</Eyebrow>
             <h2 className="mt-4 text-[2.15rem] font-semibold leading-[0.96] tracking-[-0.04em] text-white sm:text-[2.95rem]">
@@ -797,7 +794,7 @@ export function Landing() {
           </div>
         </Block>
 
-        <Block>
+        <Block className="pt-6 sm:pt-7">
           <Reveal>
             <Eyebrow>09. 영상</Eyebrow>
             <h2 className="mt-4 text-[2.15rem] font-semibold leading-[0.96] tracking-[-0.04em] text-white sm:text-[2.95rem]">
@@ -824,16 +821,16 @@ export function Landing() {
           subtitle="좋아 보여도 안 됩니다. 바로 이해돼야 움직입니다."
         />
 
-        <Block>
+        <Block className="pt-6 sm:pt-7">
           <Reveal>
             <Eyebrow>11. 해결 구조</Eyebrow>
-            <h2 className="mt-5 text-[2.65rem] font-semibold leading-[0.93] tracking-[-0.06em] text-white sm:text-[3.2rem]">
+            <h2 className="mt-4 text-[2.15rem] font-semibold leading-[0.98] tracking-[-0.04em] text-white sm:text-[2.95rem]">
               이제는 기술자가 아니라
               <span className="block text-[#F5E6B3]">대표로 배워야 남습니다.</span>
             </h2>
           </Reveal>
 
-          <div className="mt-5 space-y-3">
+          <div className="mt-4 space-y-2.5">
             {[
               {
                 icon: <Gem className="h-4 w-4" />,
@@ -868,7 +865,7 @@ export function Landing() {
           </div>
         </Block>
 
-        <Block tone="cream">
+        <Block tone="cream" className="pt-6 sm:pt-7">
           <Reveal>
             <Eyebrow light>12. 기술 커리큘럼</Eyebrow>
             <h2 className="mt-4 text-[2.05rem] font-semibold leading-[0.98] tracking-[-0.04em] sm:text-[2.85rem]">
@@ -889,7 +886,7 @@ export function Landing() {
           </div>
         </Block>
 
-        <Block>
+        <Block className="pt-6 sm:pt-7">
           <Reveal>
             <Eyebrow>13. 경영 커리큘럼</Eyebrow>
             <h2 className="mt-4 text-[2.05rem] font-semibold leading-[0.98] tracking-[-0.04em] text-white sm:text-[2.85rem]">
@@ -914,7 +911,7 @@ export function Landing() {
           </div>
         </Block>
 
-        <Block tone="cream">
+        <Block tone="cream" className="pt-6 sm:pt-7">
           <Reveal>
             <Eyebrow light>14. 워킹맘 마인드셋</Eyebrow>
             <h2 className="mt-4 text-[2.05rem] font-semibold leading-[0.98] tracking-[-0.04em] sm:text-[2.85rem]">
@@ -944,7 +941,7 @@ export function Landing() {
           tone="cream"
         />
 
-        <Block>
+        <Block className="pt-6 pb-6 sm:pt-7 sm:pb-7">
           <Reveal>
             <Eyebrow>15. 후기 / 증거</Eyebrow>
             <h2 className="mt-4 text-[2.05rem] font-semibold leading-[0.98] tracking-[-0.04em] text-white sm:text-[2.85rem]">
@@ -977,7 +974,7 @@ export function Landing() {
           </div>
         </Block>
 
-        <Block id="webinar" className="bg-[#090909]">
+        <Block id="webinar" className="bg-[#090909] pt-6 sm:pt-7">
           <Reveal>
             <Eyebrow>16. 무료 웨비나 구성</Eyebrow>
             <h2 className="mt-3 text-[2rem] font-semibold leading-[1.02] tracking-[-0.04em] text-white sm:text-[2.65rem]">
@@ -1027,7 +1024,7 @@ export function Landing() {
           </Reveal>
         </Block>
 
-        <Block id="final-cta">
+        <Block id="final-cta" className="pt-6 sm:pt-7">
           <Reveal>
             <DarkPanel className="border-[#D4AF37]/24 bg-[radial-gradient(circle_at_top,_rgba(212,175,55,0.22),_transparent_34%),linear-gradient(135deg,_#171717_0%,_#090909_62%,_#050505_100%)] p-4 sm:p-6">
               <div className="inline-flex items-center gap-2 rounded-full bg-[#D4AF37] px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-black">
