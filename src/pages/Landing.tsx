@@ -274,7 +274,7 @@ function HeroPortraitCard() {
   if (!imageFailed) {
     return (
       <div className="relative overflow-hidden rounded-[1.4rem] border border-white/10 shadow-[0_22px_40px_rgba(0,0,0,0.32)]">
-        <div className="relative h-[380px] overflow-hidden bg-[#121212] sm:h-[420px]">
+        <div className="relative h-[320px] overflow-hidden bg-[#121212] sm:h-[380px]">
           <img
             src="/images/ceo.jpg"
             alt="카리스뷰티 대표"
@@ -311,7 +311,7 @@ function HeroPortraitCard() {
         </div>
       </div>
 
-      <div className="relative mt-5 flex h-[380px] items-end justify-center overflow-hidden rounded-[1.5rem] border border-white/8 bg-[radial-gradient(circle_at_top,_rgba(245,230,179,0.14),_transparent_32%),#171717] sm:h-[420px]">
+      <div className="relative mt-5 flex h-[320px] items-end justify-center overflow-hidden rounded-[1.5rem] border border-white/8 bg-[radial-gradient(circle_at_top,_rgba(245,230,179,0.14),_transparent_32%),#171717] sm:h-[380px]">
         <div className="absolute inset-x-0 top-0 h-20 bg-[linear-gradient(180deg,rgba(212,175,55,0.18),transparent)]" />
         <div className="absolute left-6 top-6 rounded-full bg-black/50 px-3 py-2 text-xs font-semibold text-white/75">
           ⚠️ 바쁨
@@ -330,7 +330,7 @@ function HeroPortraitCard() {
 }
 
 function Wrap({ children, className = '' }: { children: ReactNode; className?: string }) {
-  return <div className={`mx-auto w-full max-w-[620px] ${className}`.trim()}>{children}</div>;
+  return <div className={`mx-auto w-full max-w-[640px] ${className}`.trim()}>{children}</div>;
 }
 
 function Block({
@@ -347,7 +347,7 @@ function Block({
   const toneClass = tone === 'cream' ? 'bg-[#F5EDDC] text-[#111111]' : 'bg-transparent text-white';
 
   return (
-    <section id={id} className={`px-4 py-7 sm:px-5 sm:py-9 ${toneClass} ${className}`.trim()}>
+    <section id={id} className={`px-4 py-6 sm:px-5 sm:py-8 ${toneClass} ${className}`.trim()}>
       <Wrap>{children}</Wrap>
     </section>
   );
@@ -371,7 +371,7 @@ function Eyebrow({ children, light = false }: { children: ReactNode; light?: boo
 function DarkPanel({ children, className = '' }: { children: ReactNode; className?: string }) {
   return (
     <div
-      className={`rounded-[1.8rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02))] p-5 shadow-[0_20px_45px_rgba(0,0,0,0.24)] ${className}`.trim()}
+      className={`rounded-[1.5rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02))] p-4 shadow-[0_16px_36px_rgba(0,0,0,0.22)] ${className}`.trim()}
     >
       {children}
     </div>
@@ -381,7 +381,7 @@ function DarkPanel({ children, className = '' }: { children: ReactNode; classNam
 function LightPanel({ children, className = '' }: { children: ReactNode; className?: string }) {
   return (
     <div
-      className={`rounded-[1.6rem] border border-black/8 bg-white/85 p-5 shadow-[0_14px_28px_rgba(0,0,0,0.08)] ${className}`.trim()}
+      className={`rounded-[1.35rem] border border-black/8 bg-white/85 p-4 shadow-[0_12px_24px_rgba(0,0,0,0.08)] ${className}`.trim()}
     >
       {children}
     </div>
@@ -404,7 +404,7 @@ function Bubble({
         ? 'border-black/10 bg-white text-[#111111]'
         : 'border-white/10 bg-[#111111] text-white';
 
-  return <div className={`rounded-[1.2rem] border px-4 py-3 text-sm leading-6 ${toneClass} ${className}`.trim()}>{children}</div>;
+  return <div className={`rounded-[1rem] border px-3 py-2.5 text-sm leading-5 ${toneClass} ${className}`.trim()}>{children}</div>;
 }
 
 function StopScreen({
@@ -422,7 +422,7 @@ function StopScreen({
     <Block tone={tone}>
       <Reveal>
         <div
-          className={`rounded-[2rem] border p-6 sm:p-7 ${
+          className={`rounded-[1.7rem] border p-5 sm:p-6 ${
             light
               ? 'border-black/10 bg-white/70 text-[#111111]'
               : 'border-[#D4AF37]/18 bg-[radial-gradient(circle_at_top,_rgba(212,175,55,0.16),_transparent_36%),#0E0E0E] text-white'
@@ -432,7 +432,7 @@ function StopScreen({
             {lines.map((line, index) => (
               <p
                 key={line}
-                className={`text-[2.75rem] font-semibold leading-[0.94] tracking-[-0.06em] sm:text-[3.7rem] ${
+                className={`text-[2.45rem] font-semibold leading-[1.02] tracking-[-0.05em] sm:text-[3.15rem] ${
                   index === lines.length - 1 ? (light ? 'text-[#8A6910]' : 'text-[#F5E6B3]') : ''
                 }`}
               >
@@ -441,7 +441,7 @@ function StopScreen({
             ))}
           </div>
           {subtitle ? (
-            <p className={`mt-4 text-sm leading-6 ${light ? 'text-[#463F33]' : 'text-white/60'}`}>{subtitle}</p>
+            <p className={`mt-3 text-[13px] leading-5 ${light ? 'text-[#463F33]' : 'text-white/60'}`}>{subtitle}</p>
           ) : null}
         </div>
       </Reveal>
@@ -456,7 +456,7 @@ function StrongCTA({
   label?: string;
   href?: string;
 }) {
-  return <CTAButton href={href} label={label} className="min-h-14 w-full justify-center px-8 text-[15px]" />;
+  return <CTAButton href={href} label={label} className="min-h-[52px] w-full justify-center px-6 text-[14px]" />;
 }
 
 export function Landing() {
@@ -498,23 +498,23 @@ export function Landing() {
       <main className="pb-28 sm:pb-0">
         <Block>
           <Reveal>
-            <DarkPanel className="bg-[#0E0E0E] p-4 sm:p-5">
+            <DarkPanel className="bg-[#0E0E0E] p-4">
               <Eyebrow>01. Hero</Eyebrow>
               <Reveal delay={0.04} className="mt-3">
                 <HeroPortraitCard />
               </Reveal>
 
-              <h1 className="mt-4 text-[2.2rem] font-semibold leading-[0.94] tracking-[-0.05em] text-white sm:text-[3.1rem]">
+              <h1 className="mt-3 text-[2.65rem] font-semibold leading-[1.06] tracking-[-0.05em] text-white sm:text-[3rem]">
                 기술만으로
                 <span className="block text-[#F5E6B3]">절대 안 바뀝니다</span>
               </h1>
 
-              <Bubble tone="gold" className="mt-3 py-2.5 font-semibold leading-5">
+              <Bubble tone="gold" className="mt-3 px-3 py-2 text-[15px] font-semibold leading-5">
                 ⚠️ 1인샵 워킹맘 대표님
                 <span className="block">지금도 혼자 버티고 계신가요?</span>
               </Bubble>
 
-              <p className="mt-3 text-base font-medium leading-6 text-white/76 sm:text-lg sm:leading-7">
+              <p className="mt-3 text-[15px] font-medium leading-6 text-white/76 sm:text-base sm:leading-7">
                 <span className="block">바쁜데 돈은 안 남고</span>
                 <span className="block">아이 보며 버티는 하루만 반복된다면</span>
                 <span className="block">문제는 더 열심히가 아닙니다.</span>
@@ -522,7 +522,7 @@ export function Landing() {
 
               <div className="mt-3 flex flex-col gap-2.5">
                 <StrongCTA label="지금 안 바꾸면 계속 똑같습니다" />
-                <Bubble className="py-2.5 font-medium leading-5">
+                <Bubble className="py-2 text-[14px] font-medium leading-5">
                   <span className="block">사람이 먼저 신뢰를 만들고</span>
                   <span className="block">결과가 다음 클릭을 만듭니다.</span>
                 </Bubble>
@@ -530,7 +530,7 @@ export function Landing() {
 
               <div className="mt-3 grid grid-cols-2 gap-2">
                 {empathyChecklist.map((item) => (
-                  <Bubble key={item} className="min-h-[46px] px-3 py-2 text-[11px] font-semibold leading-4 sm:text-xs">
+                  <Bubble key={item} className="min-h-[40px] px-3 py-1.5 text-[11px] font-semibold leading-4 sm:text-xs">
                     {item}
                   </Bubble>
                 ))}
@@ -539,36 +539,36 @@ export function Landing() {
               <div className="mt-3 grid gap-2 sm:grid-cols-3">
                 <DarkPanel className="bg-[#131313] p-3.5">
                   <div className="flex items-center gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#D4AF37]/10 text-[#F5E6B3]">
-                      <AlarmClock className="h-4 w-4" />
+                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#D4AF37]/10 text-[#F5E6B3]">
+                      <AlarmClock className="h-3.5 w-3.5" />
                     </div>
                     <div>
-                      <p className="text-[1.1rem] font-semibold leading-[1.02] text-white">⚠️ 바쁨</p>
-                      <p className="mt-1 text-xs leading-5 text-white/60">돈 안 됨, 멘탈 붕괴</p>
+                      <p className="text-[0.98rem] font-semibold leading-[1.08] text-white">⚠️ 바쁨</p>
+                      <p className="mt-1 text-[11px] leading-4 text-white/60">돈 안 됨, 멘탈 붕괴</p>
                     </div>
                   </div>
                 </DarkPanel>
 
                 <DarkPanel className="border-[#D4AF37]/18 bg-[radial-gradient(circle_at_top,_rgba(212,175,55,0.16),_transparent_30%),#121212] p-3.5">
                   <div className="flex items-center gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#D4AF37]/10 text-[#F5E6B3]">
-                      <Workflow className="h-4 w-4" />
+                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#D4AF37]/10 text-[#F5E6B3]">
+                      <Workflow className="h-3.5 w-3.5" />
                     </div>
                     <div>
-                      <p className="text-[1.1rem] font-semibold leading-[1.02] text-white">💡 시스템</p>
-                      <p className="mt-1 text-xs leading-5 text-white/60">예약 흐름, 운영 기준</p>
+                      <p className="text-[0.98rem] font-semibold leading-[1.08] text-white">💡 시스템</p>
+                      <p className="mt-1 text-[11px] leading-4 text-white/60">예약 흐름, 운영 기준</p>
                     </div>
                   </div>
                 </DarkPanel>
 
                 <DarkPanel className="bg-[#131313] p-3.5">
                   <div className="flex items-center gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#D4AF37]/10 text-[#F5E6B3]">
-                      <HeartHandshake className="h-4 w-4" />
+                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#D4AF37]/10 text-[#F5E6B3]">
+                      <HeartHandshake className="h-3.5 w-3.5" />
                     </div>
                     <div>
-                      <p className="text-[1.1rem] font-semibold leading-[1.02] text-white">🔥 워킹맘</p>
-                      <p className="mt-1 text-xs leading-5 text-white/60">안정, 시스템 운영</p>
+                      <p className="text-[0.98rem] font-semibold leading-[1.08] text-white">🔥 워킹맘</p>
+                      <p className="mt-1 text-[11px] leading-4 text-white/60">안정, 시스템 운영</p>
                     </div>
                   </div>
                 </DarkPanel>
@@ -585,21 +585,21 @@ export function Landing() {
         <Block tone="cream">
           <Reveal>
             <Eyebrow light>03. 내 스토리</Eyebrow>
-            <h2 className="mt-5 text-[2.75rem] font-semibold leading-[0.93] tracking-[-0.06em] sm:text-[3.3rem]">
+            <h2 className="mt-4 text-[2.35rem] font-semibold leading-[1.04] tracking-[-0.05em] sm:text-[2.9rem]">
               기술이면 될 줄 알았습니다.
               <span className="block text-[#8A6910]">그래서 더 지쳤습니다.</span>
             </h2>
           </Reveal>
 
-          <div className="mt-5 space-y-3">
+          <div className="mt-4 space-y-2.5">
             {storyLines.map((story, index) => (
               <Reveal key={story.lines.join('-')} delay={index * 0.04}>
-                <LightPanel>
+                <LightPanel className="p-3.5">
                   <div className="flex items-start gap-3">
-                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-black text-white">
-                      <span className="text-base">{story.emoji}</span>
+                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-black text-white">
+                      <span className="text-sm">{story.emoji}</span>
                     </div>
-                    <Bubble tone="light" className="flex-1 border-black/10 bg-[#F8F2E6] text-base font-semibold leading-7">
+                    <Bubble tone="light" className="flex-1 border-black/10 bg-[#F8F2E6] px-3 py-2 text-[15px] font-semibold leading-6">
                       <span className="block">{story.lines[0]}</span>
                       <span className="block">{story.lines[1]}</span>
                     </Bubble>
@@ -947,14 +947,14 @@ export function Landing() {
         <Block id="webinar" className="bg-[#090909]">
           <Reveal>
             <Eyebrow>16. 무료 웨비나 구성</Eyebrow>
-            <h2 className="mt-5 text-[2.5rem] font-semibold leading-[0.94] tracking-[-0.06em] text-white sm:text-[3.05rem]">
+            <h2 className="mt-4 text-[2.3rem] font-semibold leading-[1.04] tracking-[-0.05em] text-white sm:text-[2.8rem]">
               무료로 듣는 한 번이
               <span className="block text-[#F5E6B3]">지금 흐름을 완전히 바꿉니다.</span>
             </h2>
           </Reveal>
 
-          <Reveal delay={0.04} className="mt-5">
-            <DarkPanel className="border-[#D4AF37]/20 bg-[radial-gradient(circle_at_top,_rgba(212,175,55,0.18),_transparent_34%),linear-gradient(135deg,_#171717_0%,_#0A0A0A_60%,_#050505_100%)]">
+          <Reveal delay={0.04} className="mt-4">
+            <DarkPanel className="border-[#D4AF37]/20 bg-[radial-gradient(circle_at_top,_rgba(212,175,55,0.18),_transparent_34%),linear-gradient(135deg,_#171717_0%,_#0A0A0A_60%,_#050505_100%)] p-4">
               <div className="flex flex-wrap gap-2">
                 <Bubble tone="gold" className="py-2 text-[11px] font-semibold uppercase tracking-[0.2em]">
                   선착순 50명
@@ -964,29 +964,29 @@ export function Landing() {
                 </Bubble>
               </div>
 
-              <div className="mt-5 grid grid-cols-4 gap-2">
+              <div className="mt-4 grid grid-cols-4 gap-2">
                 {countdown.map((item) => (
-                  <div key={item.label} className="rounded-[1rem] border border-white/10 bg-[#111111] px-3 py-4 text-center">
-                    <div className="text-2xl font-semibold text-white">{item.value}</div>
-                    <div className="mt-1 text-[10px] uppercase tracking-[0.18em] text-[#D4AF37]">{item.label}</div>
+                  <div key={item.label} className="rounded-[0.95rem] border border-white/10 bg-[#111111] px-2 py-3 text-center">
+                    <div className="text-[1.35rem] font-semibold text-white">{item.value}</div>
+                    <div className="mt-1 text-[9px] uppercase tracking-[0.16em] text-[#D4AF37]">{item.label}</div>
                   </div>
                 ))}
               </div>
 
-              <div className="mt-5 space-y-2">
+              <div className="mt-4 space-y-2">
                 {webinarFlow.map((item, index) => (
-                  <div key={item} className="flex items-start gap-3 rounded-[1rem] border border-white/8 bg-[#151515] px-4 py-4">
-                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#D4AF37] text-xs font-semibold text-black">
+                  <div key={item} className="flex items-start gap-3 rounded-[1rem] border border-white/8 bg-[#151515] px-3 py-3">
+                    <div className="flex h-7 w-7 items-center justify-center rounded-full bg-[#D4AF37] text-[11px] font-semibold text-black">
                       {index + 1}
                     </div>
-                    <p className="pt-0.5 text-sm leading-7 text-white/76">{item}</p>
+                    <p className="pt-0.5 text-[15px] leading-6 text-white/76">{item}</p>
                   </div>
                 ))}
               </div>
 
-              <div className="mt-5 flex flex-col gap-3">
+              <div className="mt-4 flex flex-col gap-2.5">
                 <StrongCTA label="지금 안 바꾸면 계속 똑같습니다" />
-                <Bubble className="font-medium">
+                <Bubble className="py-2 text-[14px] font-medium leading-5">
                   더 늦으면 또 같은 달을 반복합니다. 지금 끊어야 다음 달이 달라집니다.
                 </Bubble>
               </div>
