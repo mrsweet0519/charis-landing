@@ -273,20 +273,20 @@ function HeroPortraitCard() {
 
   if (!imageFailed) {
     return (
-      <div className="relative overflow-hidden rounded-[1.4rem] border border-white/10 shadow-[0_22px_40px_rgba(0,0,0,0.32)]">
-        <div className="relative h-[320px] overflow-hidden bg-[#121212] sm:h-[380px]">
+      <div className="relative overflow-hidden rounded-[1.5rem] border border-white/8 bg-[radial-gradient(circle_at_top,_rgba(212,175,55,0.14),_transparent_36%),linear-gradient(180deg,_#111111_0%,_#090909_100%)] shadow-[0_22px_44px_rgba(0,0,0,0.34)]">
+        <div className="relative flex h-[352px] items-center justify-center overflow-hidden bg-[#101010] sm:h-[372px]">
           <img
             src="/images/ceo.jpg"
             alt="카리스뷰티 대표"
-            className="h-full w-full object-cover object-center sm:object-[center_top]"
+            className="h-full w-full object-cover object-[center_18%] sm:object-[center_18%]"
             loading="eager"
             fetchPriority="high"
             onError={() => setImageFailed(true)}
           />
-          <div className="absolute inset-0 bg-black/12" />
-          <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/78 via-black/30 to-transparent px-5 pb-5 pt-10">
-            <p className="text-sm font-semibold tracking-[-0.02em] text-white/92">
-              대표의 얼굴이 먼저 설득합니다
+          <div className="absolute inset-0 bg-black/10" />
+          <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black via-black/42 to-transparent px-5 pb-5 pt-16">
+            <p className="text-[13px] font-semibold tracking-[-0.02em] text-white/94">
+              대표의 얼굴이 먼저 신뢰를 만듭니다
             </p>
           </div>
         </div>
@@ -295,7 +295,7 @@ function HeroPortraitCard() {
   }
 
   return (
-    <div className="relative overflow-hidden rounded-[1.4rem] border border-[#D4AF37]/18 bg-[radial-gradient(circle_at_top,_rgba(212,175,55,0.18),_transparent_34%),linear-gradient(180deg,_#151515_0%,_#0C0C0C_100%)] p-5 shadow-[0_22px_40px_rgba(0,0,0,0.32)]">
+    <div className="relative overflow-hidden rounded-[1.5rem] border border-white/8 bg-[radial-gradient(circle_at_top,_rgba(212,175,55,0.18),_transparent_34%),linear-gradient(180deg,_#151515_0%,_#0C0C0C_100%)] p-4 shadow-[0_22px_44px_rgba(0,0,0,0.34)]">
       <div className="flex items-center justify-between gap-3">
         <div>
           <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#D4AF37]">
@@ -311,7 +311,7 @@ function HeroPortraitCard() {
         </div>
       </div>
 
-      <div className="relative mt-5 flex h-[320px] items-end justify-center overflow-hidden rounded-[1.5rem] border border-white/8 bg-[radial-gradient(circle_at_top,_rgba(245,230,179,0.14),_transparent_32%),#171717] sm:h-[380px]">
+      <div className="relative mt-4 flex h-[352px] items-end justify-center overflow-hidden rounded-[1.25rem] border border-white/8 bg-[radial-gradient(circle_at_top,_rgba(245,230,179,0.14),_transparent_32%),#171717] sm:h-[372px]">
         <div className="absolute inset-x-0 top-0 h-20 bg-[linear-gradient(180deg,rgba(212,175,55,0.18),transparent)]" />
         <div className="absolute left-6 top-6 rounded-full bg-black/50 px-3 py-2 text-xs font-semibold text-white/75">
           ⚠️ 바쁨
@@ -496,85 +496,97 @@ export function Landing() {
       </header>
 
       <main className="pb-28 sm:pb-0">
-        <Block>
-          <Reveal>
-            <DarkPanel className="bg-[#0E0E0E] p-4">
-              <Eyebrow>01. Hero</Eyebrow>
-              <Reveal delay={0.04} className="mt-3">
+        <section className="px-3 pb-4 pt-3 sm:px-4 sm:pb-5 sm:pt-4">
+          <div className="mx-auto w-full max-w-[680px]">
+            <Reveal>
+              <div className="-mx-1 sm:mx-0">
                 <HeroPortraitCard />
-              </Reveal>
+              </div>
 
-              <h1 className="mt-3 text-[2.65rem] font-semibold leading-[1.06] tracking-[-0.05em] text-white sm:text-[3rem]">
-                기술만으로
-                <span className="block text-[#F5E6B3]">절대 안 바뀝니다</span>
-              </h1>
+              <div className="mt-3 inline-flex items-center rounded-full border border-[#D4AF37]/20 bg-[#111111] px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#F5E6B3]">
+                ⚠ 1인샵 대표님
+              </div>
 
-              <Bubble tone="gold" className="mt-3 px-3 py-2 text-[15px] font-semibold leading-5">
-                ⚠️ 1인샵 워킹맘 대표님
-                <span className="block">지금도 혼자 버티고 계신가요?</span>
-              </Bubble>
-
-              <p className="mt-3 text-[15px] font-medium leading-6 text-white/76 sm:text-base sm:leading-7">
-                <span className="block">바쁜데 돈은 안 남고</span>
-                <span className="block">아이 보며 버티는 하루만 반복된다면</span>
-                <span className="block">문제는 더 열심히가 아닙니다.</span>
+              <p className="mt-3 text-[1.12rem] font-semibold leading-[1.22] tracking-[-0.04em] text-white sm:text-[1.22rem]">
+                <span className="block">잘하는데 예약이 안 찬다면,</span>
+                <span className="block text-[#F5E6B3]">문제는 기술이 아닙니다.</span>
               </p>
 
-              <div className="mt-3 flex flex-col gap-2.5">
-                <StrongCTA label="지금 안 바꾸면 계속 똑같습니다" />
-                <Bubble className="py-2 text-[14px] font-medium leading-5">
-                  <span className="block">사람이 먼저 신뢰를 만들고</span>
-                  <span className="block">결과가 다음 클릭을 만듭니다.</span>
-                </Bubble>
+              <h1 className="mt-3 text-[2.62rem] font-semibold leading-[1.04] tracking-[-0.06em] text-white sm:text-[3.15rem]">
+                <span className="block">기술만 배우면</span>
+                <span className="block">
+                  <span className="text-[#F5E6B3]">계속</span> 혼자
+                </span>
+                <span className="block">버티게 됩니다</span>
+              </h1>
+
+              <p className="mt-3 text-[14px] font-semibold leading-5 text-white/74">
+                지금 안 바꾸면 계속 똑같습니다.
+              </p>
+
+              <div className="mt-4">
+                <CTAButton
+                  href={WEBINAR_CTA}
+                  label="지금 안 바꾸면 계속 똑같습니다"
+                  className="min-h-[62px] w-full justify-center px-7 text-[15px]"
+                />
               </div>
+            </Reveal>
+          </div>
+        </section>
 
-              <div className="mt-3 grid grid-cols-2 gap-2">
-                {empathyChecklist.map((item) => (
-                  <Bubble key={item} className="min-h-[40px] px-3 py-1.5 text-[11px] font-semibold leading-4 sm:text-xs">
-                    {item}
-                  </Bubble>
-                ))}
-              </div>
+        <Block className="pt-0 pb-5 sm:pb-6">
+          <Reveal>
+            <Bubble tone="gold" className="px-3 py-2 text-[13px] font-semibold leading-[1.35]">
+              1인샵 대표님, 지금도 혼자 다 하고 계신가요?
+            </Bubble>
+          </Reveal>
 
-              <div className="mt-3 grid gap-2 sm:grid-cols-3">
-                <DarkPanel className="bg-[#131313] p-3.5">
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#D4AF37]/10 text-[#F5E6B3]">
-                      <AlarmClock className="h-3.5 w-3.5" />
-                    </div>
-                    <div>
-                      <p className="text-[0.98rem] font-semibold leading-[1.08] text-white">⚠️ 바쁨</p>
-                      <p className="mt-1 text-[11px] leading-4 text-white/60">돈 안 됨, 멘탈 붕괴</p>
-                    </div>
-                  </div>
-                </DarkPanel>
+          <div className="mt-3 grid grid-cols-2 gap-2">
+            {empathyChecklist.map((item) => (
+              <Bubble key={item} className="min-h-[36px] px-3 py-1.5 text-[11px] font-semibold leading-[1.25]">
+                {item}
+              </Bubble>
+            ))}
+          </div>
 
-                <DarkPanel className="border-[#D4AF37]/18 bg-[radial-gradient(circle_at_top,_rgba(212,175,55,0.16),_transparent_30%),#121212] p-3.5">
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#D4AF37]/10 text-[#F5E6B3]">
-                      <Workflow className="h-3.5 w-3.5" />
-                    </div>
-                    <div>
-                      <p className="text-[0.98rem] font-semibold leading-[1.08] text-white">💡 시스템</p>
-                      <p className="mt-1 text-[11px] leading-4 text-white/60">예약 흐름, 운영 기준</p>
-                    </div>
-                  </div>
-                </DarkPanel>
-
-                <DarkPanel className="bg-[#131313] p-3.5">
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#D4AF37]/10 text-[#F5E6B3]">
-                      <HeartHandshake className="h-3.5 w-3.5" />
-                    </div>
-                    <div>
-                      <p className="text-[0.98rem] font-semibold leading-[1.08] text-white">🔥 워킹맘</p>
-                      <p className="mt-1 text-[11px] leading-4 text-white/60">안정, 시스템 운영</p>
-                    </div>
-                  </div>
-                </DarkPanel>
+          <div className="mt-3 -mx-1 flex snap-x snap-mandatory gap-2 overflow-x-auto px-1 pb-1 sm:mx-0 sm:grid sm:grid-cols-3 sm:overflow-visible sm:px-0 sm:pb-0">
+            <DarkPanel className="min-w-[190px] snap-start bg-[#131313] p-3 sm:min-w-0">
+              <div className="flex items-center gap-2.5">
+                <div className="flex h-7 w-7 items-center justify-center rounded-full bg-[#D4AF37]/10 text-[#F5E6B3]">
+                  <AlarmClock className="h-3.5 w-3.5" />
+                </div>
+                <div>
+                  <p className="text-[0.9rem] font-semibold leading-[1.08] text-white">⚠️ 바쁨</p>
+                  <p className="mt-1 text-[11px] leading-4 text-white/60">돈 안 됨, 멘탈 붕괴</p>
+                </div>
               </div>
             </DarkPanel>
-          </Reveal>
+
+            <DarkPanel className="min-w-[190px] snap-start border-[#D4AF37]/18 bg-[radial-gradient(circle_at_top,_rgba(212,175,55,0.16),_transparent_30%),#121212] p-3 sm:min-w-0">
+              <div className="flex items-center gap-2.5">
+                <div className="flex h-7 w-7 items-center justify-center rounded-full bg-[#D4AF37]/10 text-[#F5E6B3]">
+                  <Workflow className="h-3.5 w-3.5" />
+                </div>
+                <div>
+                  <p className="text-[0.9rem] font-semibold leading-[1.08] text-white">💡 시스템</p>
+                  <p className="mt-1 text-[11px] leading-4 text-white/60">예약 흐름, 운영 기준</p>
+                </div>
+              </div>
+            </DarkPanel>
+
+            <DarkPanel className="min-w-[190px] snap-start bg-[#131313] p-3 sm:min-w-0">
+              <div className="flex items-center gap-2.5">
+                <div className="flex h-7 w-7 items-center justify-center rounded-full bg-[#D4AF37]/10 text-[#F5E6B3]">
+                  <HeartHandshake className="h-3.5 w-3.5" />
+                </div>
+                <div>
+                  <p className="text-[0.9rem] font-semibold leading-[1.08] text-white">🔥 워킹맘</p>
+                  <p className="mt-1 text-[11px] leading-4 text-white/60">안정, 시스템 운영</p>
+                </div>
+              </div>
+            </DarkPanel>
+          </div>
         </Block>
 
         <StopScreen
