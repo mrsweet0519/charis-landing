@@ -2,7 +2,6 @@ import type { ReactNode } from 'react';
 import { useEffect, useState } from 'react';
 import {
   AlarmClock,
-  ArrowDown,
   ArrowRight,
   BadgeCheck,
   Brain,
@@ -33,40 +32,39 @@ const FINAL_CTA = '#final-cta';
 const DEADLINE = new Date('2026-05-10T23:59:59+09:00').getTime();
 
 const empathyChecklist = [
-  '시술도 내가',
-  '상담도 내가',
-  'CS도 내가',
-  '세금도 내가',
-  '광고도 내가',
-  '고객 설득도 내가',
-  '아이 케어까지 내가',
+  '✔ 시술도 내가',
+  '✔ 상담도 내가',
+  '✔ CS도 내가',
+  '✔ 세금도 내가',
+  '✔ 광고도 내가',
+  '✔ 아이 케어까지 내가',
 ];
 
 const structurePillars = [
   {
     icon: Gem,
     title: '기술',
-    text: '잘하는 기술이 아니라, 고객이 바로 납득하는 기술.',
+    text: '💡 고객이 바로\n납득하는 결과',
   },
   {
     icon: BriefcaseBusiness,
     title: '경영',
-    text: '버티는 운영이 아니라, 무너지지 않는 운영.',
+    text: '💡 버티는 운영 말고\n무너지지 않는 운영',
   },
   {
     icon: HeartHandshake,
     title: 'CS',
-    text: '친절한 응대가 아니라, 다시 오게 만드는 흐름.',
+    text: '💡 친절한 응대 말고\n다시 오게 만드는 흐름',
   },
   {
     icon: CircleDollarSign,
     title: '세금',
-    text: '몰라서 새는 돈부터 막는 대표 감각.',
+    text: '💡 몰라서 새는 돈\n먼저 막는 감각',
   },
   {
     icon: Brain,
     title: '워킹맘 마인드',
-    text: '무너지지 않고 오래 가는 기준과 루틴.',
+    text: '💡 무너지지 않고\n오래 가는 루틴',
   },
 ];
 
@@ -79,44 +77,56 @@ const resultCategories = [
 ];
 
 const technicalCurriculum = [
-  'D, L 차이',
-  '색소, 니들',
-  '파지',
-  '고무판',
-  '마네킹',
-  '임상',
-  'AB 사진 콘텐츠 제공',
+  '✔ D, L 차이',
+  '✔ 색소, 니들',
+  '✔ 파지',
+  '✔ 고무판',
+  '✔ 마네킹',
+  '✔ 임상',
+  '✔ AB 사진',
 ];
 
 const businessCurriculum = [
-  '경영철학',
-  '자본주의',
-  '마케팅',
-  '상담 + CRM',
-  '카톡채널 유입',
-  '플레이스 운영',
-  '마케팅 SaaS 프로그램 세팅',
+  '✔ 경영철학',
+  '✔ 자본주의',
+  '✔ 마케팅',
+  '✔ 상담 + CRM',
+  '✔ 카톡채널 유입',
+  '✔ 플레이스 운영',
+  '✔ SaaS 세팅',
 ];
 
 const mindsetPoints = [
-  '시간 관리',
-  '감정 소진 줄이기',
-  '아이와 일 사이에서 무너지지 않는 기준',
-  '오래 가는 운영 루틴',
+  '💡 시간 관리',
+  '💡 감정 소진 줄이기',
+  '💡 일과 아이 사이 기준 세우기',
+  '💡 오래 가는 운영 루틴',
 ];
 
 const webinarFlow = [
-  '내 위치 진단',
-  '왜 기술만으로는 안 되는가',
-  '결로 고단가 만드는 구조',
-  '경영 커리큘럼 소개',
+  '👉 내 위치 진단',
+  '👉 왜 기술만으로는 안 되는가',
+  '👉 결로 고단가 만드는 구조',
+  '👉 경영 커리큘럼 소개',
 ];
 
 const storyLines = [
-  '기술만 있으면 될 줄 알았습니다. 그런데 예약은 그대로였습니다.',
-  '광고비는 계속 빠져나가고, 상담은 늘 제가 끝까지 설득해야 했습니다.',
-  '아이를 보며 버티는 하루가 반복되자, 더 열심히 하는 것만으로는 절대 안 바뀐다는 걸 알았습니다.',
-  '문제는 기술이 아니라 구조였습니다. 그래서 기술과 경영을 같이 다루기 시작했습니다.',
+  {
+    emoji: '⚠️',
+    lines: ['기술만 있으면', '될 줄 알았습니다.'],
+  },
+  {
+    emoji: '🔥',
+    lines: ['광고비는 나가는데', '예약은 그대로였습니다.'],
+  },
+  {
+    emoji: '⚠️',
+    lines: ['아이 보며 버티는 하루,', '그게 한계였습니다.'],
+  },
+  {
+    emoji: '💡',
+    lines: ['문제는 기술이 아니라', '구조였습니다.'],
+  },
 ];
 
 const reviewCards = [
@@ -223,7 +233,7 @@ function ResultCard({
           </div>
         </div>
 
-        <p className="mt-3 text-sm leading-6 text-white/68">{text}</p>
+        <p className="mt-3 whitespace-pre-line text-sm font-medium leading-6 text-white/68">{text}</p>
 
         <div
           className={`mt-4 overflow-hidden rounded-[1.35rem] border ${
@@ -255,6 +265,65 @@ function ResultCard({
         </div>
       </DarkPanel>
     </Reveal>
+  );
+}
+
+function HeroPortraitCard() {
+  const [imageFailed, setImageFailed] = useState(false);
+
+  if (!imageFailed) {
+    return (
+      <div className="relative overflow-hidden rounded-[1.4rem] border border-white/10 shadow-[0_22px_40px_rgba(0,0,0,0.32)]">
+        <div className="relative aspect-[4/5] overflow-hidden bg-[#121212] sm:aspect-[3/4]">
+          <img
+            src="/images/ceo.jpg"
+            alt="카리스뷰티 대표"
+            className="h-full w-full object-cover"
+            onError={() => setImageFailed(true)}
+          />
+          <div className="absolute inset-0 bg-black/15" />
+          <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/78 via-black/30 to-transparent px-5 pb-5 pt-10">
+            <p className="text-sm font-semibold tracking-[-0.02em] text-white/92">
+              대표의 얼굴이 먼저 설득합니다
+            </p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="relative overflow-hidden rounded-[1.4rem] border border-[#D4AF37]/18 bg-[radial-gradient(circle_at_top,_rgba(212,175,55,0.18),_transparent_34%),linear-gradient(180deg,_#151515_0%,_#0C0C0C_100%)] p-5 shadow-[0_22px_40px_rgba(0,0,0,0.32)]">
+      <div className="flex items-center justify-between gap-3">
+        <div>
+          <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#D4AF37]">
+            Hero Visual
+          </p>
+          <h3 className="mt-2 text-xl font-semibold text-white">
+            여성 1인샵 대표
+            <span className="block text-[#F5E6B3]">placeholder</span>
+          </h3>
+        </div>
+        <div className="rounded-full bg-[#D4AF37] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-black">
+          working mom
+        </div>
+      </div>
+
+      <div className="relative mt-5 flex aspect-[4/5] items-end justify-center overflow-hidden rounded-[1.5rem] border border-white/8 bg-[radial-gradient(circle_at_top,_rgba(245,230,179,0.14),_transparent_32%),#171717]">
+        <div className="absolute inset-x-0 top-0 h-20 bg-[linear-gradient(180deg,rgba(212,175,55,0.18),transparent)]" />
+        <div className="absolute left-6 top-6 rounded-full bg-black/50 px-3 py-2 text-xs font-semibold text-white/75">
+          ⚠️ 바쁨
+        </div>
+        <div className="absolute right-6 top-16 rounded-full bg-[#D4AF37]/12 px-3 py-2 text-xs font-semibold text-[#F5E6B3]">
+          💡 시스템 운영
+        </div>
+        <div className="absolute bottom-0 h-[76%] w-[46%] rounded-t-[9rem] bg-[linear-gradient(180deg,#2C2C2C_0%,#111111_100%)]" />
+        <div className="absolute bottom-[58%] h-20 w-20 rounded-full bg-[linear-gradient(180deg,#3B3B3B_0%,#202020_100%)]" />
+        <div className="absolute bottom-6 rounded-full border border-white/10 bg-black/48 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white/65">
+          실제 대표 이미지 교체 영역
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -429,99 +498,81 @@ export function Landing() {
           <Reveal>
             <DarkPanel className="bg-[#0E0E0E]">
               <Eyebrow>01. Hero</Eyebrow>
+              <Reveal delay={0.04} className="mt-4">
+                <HeroPortraitCard />
+              </Reveal>
+
               <h1 className="mt-5 text-[2.9rem] font-semibold leading-[0.9] tracking-[-0.06em] text-white sm:text-[3.7rem]">
                 기술만으론
                 <span className="block text-[#F5E6B3]">절대 안 바뀝니다</span>
               </h1>
 
               <Bubble tone="gold" className="mt-4 font-semibold">
-                1인샵 워킹맘 대표님, 지금도 혼자 다 버티고 계신가요?
+                ⚠️ 1인샵 워킹맘 대표님
+                <span className="block">지금도 혼자 버티고 계신가요?</span>
               </Bubble>
 
               <p className="mt-4 text-lg font-medium leading-7 text-white/78">
-                바쁜데 돈은 안 남고, 아이 보며 버티는 하루만 반복된다면 문제는 더 열심히가 아닙니다.
+                <span className="block">바쁜데 돈은 안 남고</span>
+                <span className="block">아이 보며 버티는 하루만 반복된다면</span>
+                <span className="block">문제는 더 열심히가 아닙니다.</span>
               </p>
 
-              <div className="mt-4 flex flex-wrap gap-2">
-                {empathyChecklist.slice(0, 5).map((item) => (
-                  <Bubble key={item} className="py-2 text-xs">
+              <div className="mt-4 flex flex-col gap-3">
+                <StrongCTA label="지금 안 바꾸면 계속 똑같습니다" />
+                <Bubble className="font-medium">
+                  <span className="block">사람이 먼저 신뢰를 만들고</span>
+                  <span className="block">결과가 다음 클릭을 만듭니다.</span>
+                </Bubble>
+              </div>
+
+              <div className="mt-4 grid grid-cols-2 gap-2">
+                {empathyChecklist.map((item) => (
+                  <Bubble key={item} className="py-2 text-xs font-semibold leading-5">
                     {item}
                   </Bubble>
                 ))}
               </div>
 
-              <div className="mt-5 space-y-3">
+              <div className="mt-4 grid gap-2.5 sm:grid-cols-3">
                 <DarkPanel className="bg-[#131313] p-4">
                   <div className="flex items-center justify-between gap-3">
                     <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#D4AF37]/10 text-[#F5E6B3]">
                       <AlarmClock className="h-4 w-4" />
                     </div>
-                    <div className="rounded-full border border-white/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-white/50">
-                      stress
-                    </div>
                   </div>
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {['바쁨', '돈 안됨', '육아 병행', '멘탈 붕괴'].map((item) => (
-                      <Bubble key={item} className="py-2 text-xs">
-                        {item}
-                      </Bubble>
-                    ))}
-                  </div>
-                  <p className="mt-4 text-[1.7rem] font-semibold leading-[1.06] text-white">스트레스 받는 1인샵 대표</p>
+                  <p className="mt-4 text-[1.55rem] font-semibold leading-[1.02] text-white">
+                    ⚠️ 바쁨
+                    <span className="block">돈 안 됨</span>
+                  </p>
+                  <p className="mt-3 text-sm leading-6 text-white/62">육아 병행, 멘탈 붕괴.</p>
                 </DarkPanel>
-
-                <div className="flex justify-center text-[#D4AF37]">
-                  <ArrowDown className="h-5 w-5" />
-                </div>
 
                 <DarkPanel className="border-[#D4AF37]/18 bg-[radial-gradient(circle_at_top,_rgba(212,175,55,0.16),_transparent_30%),#121212] p-4">
                   <div className="flex items-center justify-between gap-3">
                     <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#D4AF37]/10 text-[#F5E6B3]">
                       <Workflow className="h-4 w-4" />
                     </div>
-                    <div className="rounded-full bg-[#D4AF37] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-black">
-                      system
-                    </div>
                   </div>
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {['예약 흐름', '상담 구조', 'CS 기준', '운영 기준'].map((item) => (
-                      <Bubble key={item} className="py-2 text-xs">
-                        {item}
-                      </Bubble>
-                    ))}
-                  </div>
-                  <p className="mt-4 text-[1.7rem] font-semibold leading-[1.06] text-white">효율적인 운영</p>
+                  <p className="mt-4 text-[1.55rem] font-semibold leading-[1.02] text-white">
+                    💡 예약 흐름
+                    <span className="block">운영 기준</span>
+                  </p>
+                  <p className="mt-3 text-sm leading-6 text-white/62">상담 구조, CS 기준.</p>
                 </DarkPanel>
-
-                <div className="flex justify-center text-[#D4AF37]">
-                  <ArrowDown className="h-5 w-5" />
-                </div>
 
                 <DarkPanel className="bg-[#131313] p-4">
                   <div className="flex items-center justify-between gap-3">
                     <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#D4AF37]/10 text-[#F5E6B3]">
                       <HeartHandshake className="h-4 w-4" />
                     </div>
-                    <div className="rounded-full border border-white/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-white/50">
-                      balance
-                    </div>
                   </div>
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {['불안 → 안정', '노동 → 시스템', '버팀 → 운영'].map((item) => (
-                      <Bubble key={item} className="py-2 text-xs">
-                        {item}
-                      </Bubble>
-                    ))}
-                  </div>
-                  <p className="mt-4 text-[1.7rem] font-semibold leading-[1.06] text-white">여유 있는 워킹맘 대표</p>
+                  <p className="mt-4 text-[1.55rem] font-semibold leading-[1.02] text-white">
+                    🔥 안정
+                    <span className="block">시스템 운영</span>
+                  </p>
+                  <p className="mt-3 text-sm leading-6 text-white/62">버팀이 아니라 운영.</p>
                 </DarkPanel>
-              </div>
-
-              <div className="mt-6 flex flex-col gap-3">
-                <StrongCTA label="지금 안 바꾸면 계속 똑같습니다" />
-                <Bubble className="font-medium">
-                  시술은 이미 하고 있습니다. 이제 필요한 건 더 버티는 법이 아니라, 덜 무너지는 구조입니다.
-                </Bubble>
               </div>
             </DarkPanel>
           </Reveal>
@@ -542,15 +593,16 @@ export function Landing() {
           </Reveal>
 
           <div className="mt-5 space-y-3">
-            {storyLines.map((line, index) => (
-              <Reveal key={line} delay={index * 0.04}>
+            {storyLines.map((story, index) => (
+              <Reveal key={story.lines.join('-')} delay={index * 0.04}>
                 <LightPanel>
                   <div className="flex items-start gap-3">
                     <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-black text-white">
-                      <span className="text-[11px] font-semibold">{index + 1}</span>
+                      <span className="text-base">{story.emoji}</span>
                     </div>
-                    <Bubble tone="light" className="flex-1 border-black/10 bg-[#F8F2E6] text-base">
-                      {line}
+                    <Bubble tone="light" className="flex-1 border-black/10 bg-[#F8F2E6] text-base font-semibold leading-7">
+                      <span className="block">{story.lines[0]}</span>
+                      <span className="block">{story.lines[1]}</span>
                     </Bubble>
                   </div>
                 </LightPanel>
@@ -605,9 +657,6 @@ export function Landing() {
               기술만 배우면
               <span className="block text-[#F5E6B3]">다시 같은 자리입니다</span>
             </h2>
-            <p className="mt-4 text-base leading-7 text-white/70">
-              기술, 경영, CS, 세금, 워킹맘 마인드. 이 다섯 개가 같이 묶여야 흐름이 바뀝니다.
-            </p>
           </Reveal>
 
           <div className="mt-5 space-y-3">
@@ -623,7 +672,9 @@ export function Landing() {
                       </div>
                       <div className="flex-1">
                         <p className="text-[1.4rem] font-semibold text-white">{item.title}</p>
-                        <p className="mt-2 text-sm leading-7 text-white/68">{item.text}</p>
+                        <p className="mt-2 whitespace-pre-line text-sm font-medium leading-6 text-white/72">
+                          {item.text}
+                        </p>
                       </div>
                     </div>
                   </DarkPanel>
@@ -704,8 +755,8 @@ export function Landing() {
                 title={title}
                 text={
                   index === 0
-                    ? '결과 먼저 보이면, 질문부터 달라집니다.'
-                    : '이해시키려 하지 말고 먼저 보여줘야 합니다.'
+                    ? '결과 먼저 보이면,\n질문부터 달라집니다.'
+                    : '이해시키려 하지 말고\n먼저 보여줘야 합니다.'
                 }
                 index={index}
                 kind={index === 0 ? 'image' : 'placeholder'}
@@ -880,16 +931,16 @@ export function Landing() {
 
           <div className="mt-5 space-y-3">
             <Reveal>
-              <CapturePlaceholder title="카톡 캡처 스타일" description="실제 문의와 상담 흐름을 보여주는 구간입니다." />
+              <CapturePlaceholder title="💬 카톡 캡처" description="문의 흐름이 바로 보이게." />
             </Reveal>
             <Reveal delay={0.04}>
-              <CapturePlaceholder title="지방 문의 / 캐나다 문의" description="지역을 넘어 문의가 들어온다는 증거 구간입니다." />
+              <CapturePlaceholder title="🌍 지방 / 해외 문의" description="멀리서도 찾는 증거." />
             </Reveal>
             <Reveal delay={0.08}>
-              <CapturePlaceholder title="매출 인증 placeholder" description="실제 숫자 자료로 교체 가능한 영역입니다." />
+              <CapturePlaceholder title="📈 매출 인증" description="숫자로 찍는 신뢰." />
             </Reveal>
             <Reveal delay={0.12}>
-              <PhotoWallPlaceholder title="강의 현장 사진 8장 placeholder" description="현장감과 신뢰감을 함께 보여주는 사진 벽입니다." />
+              <PhotoWallPlaceholder title="📸 강의 현장 사진" description="현장감이 바로 느껴지게." />
             </Reveal>
           </div>
         </Block>
